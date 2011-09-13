@@ -1,0 +1,11 @@
+{ "name" : "es"
+, "description" : "A very thin wrapper around elasticsearch for Node"
+, "version" : "0.0.1"
+, "author" : "Gabriel Farrell <g@grrawr.com>"
+, "engines" : { "node": ">=0.4.0" }
+, "main" : "lib/es"
+, "repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/gsf/node-es.git"
+  }
+}
