@@ -1,6 +1,7 @@
 // very simple elasticsearch request wrapper
 
 var http = require('http');
+var url = require('url');
 
 var DEFAULTS = {
   host: '127.0.0.1',
@@ -11,13 +12,20 @@ var DEFAULTS = {
   res: null,
   respond: false,
   fake: false,
-  debug: false
+  debug: false,
+  url: ''
 };
 
 module.exports = function(options, callback) {
+  var urlObj;
   options = union(options, DEFAULTS);
   callback = callback || function() {};
   if (options.fake) return callback();
+  if (options.url) {
+    urlObj = url.parse(options.url);
+    options.host = urlObj.host;
+    options.path = urlObj.path;
+  }
   var req = http.request(options, function(res) {
     var data = '';
     res.on('data', function(chunk) {
