@@ -3,7 +3,7 @@
 , "version" : "0.0.4"
 , "author" : "Gabriel Farrell <g@grrawr.com>"
 , "engines" : { "node": ">=0.4.0" }
-, "main" : "lib/es"
+, "main" : "es"
 , "repository" :
   { "type" : "git"
   , "url" : "http://github.com/gsf/node-es.git"
