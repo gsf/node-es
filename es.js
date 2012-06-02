@@ -25,6 +25,7 @@ module.exports = function(options, callback) {
     urlObj = url.parse(options.url);
     options.host = urlObj.host;
     options.path = urlObj.path;
+    options.port = urlObj.port;
   }
   var req = http.request(options, function(res) {
     var data = '';
