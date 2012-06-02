@@ -14,7 +14,7 @@ var DEFAULTS = {
   debug: false
 };
 
-exports.request = function(options, callback) {
+module.exports = function(options, callback) {
   options = union(options, DEFAULTS);
   callback = callback || function() {};
   if (options.fake) return callback();
