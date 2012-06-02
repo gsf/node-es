@@ -58,7 +58,8 @@ module.exports = function(options, callback) {
     if (options.debug) console.log("Error: " + e.message);
     callback(e);
   });
-  req.end(options.data);
+  // assume options.data needs to be stringified if it's not a string
+  req.end(typeof options.data == 'string' ? options.data : JSON.stringify(options.data));
 };
 
 
