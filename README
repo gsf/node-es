@@ -1,1 +1,2 @@
+[![build status](https://secure.travis-ci.org/gsf/node-es.png)](http://travis-ci.org/gsf/node-es)
 A very thin wrapper around elasticsearch for Node
