@@ -1,11 +1,15 @@
-{ "name" : "es"
-, "description" : "A very thin wrapper around elasticsearch for Node"
-, "version" : "0.0.5"
-, "author" : "Gabriel Farrell <g@grrawr.com>"
-, "engines" : { "node": ">=0.4.0" }
-, "main" : "es"
-, "repository" :
-  { "type" : "git"
-  , "url" : "http://github.com/gsf/node-es.git"
-  }
+{ 
+  "name": "es", 
+  "description": "A very thin wrapper around elasticsearch for Node", 
+  "version": "0.0.5", 
+  "author": "Gabriel Farrell <g@grrawr.com>", 
+  "engines": {"node": ">=0.6.0"}, 
+  "main": "es", 
+  "repository": { 
+    "type" : "git", 
+    "url" : "http://github.com/gsf/node-es.git"
+  },
+  "scripts": {
+    "test" : "node test/setup.js; find test/test-*.js | xargs -n 1 -t node; node test/teardown.js"
+  } 
 }

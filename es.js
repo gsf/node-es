@@ -6,11 +6,10 @@ var url = require('url');
 var DEFAULTS = {
   host: '127.0.0.1',
   port: 9200,
-  path: '/_cluster/state',
+  path: '/',
   method: 'GET',
   data: '',
   res: null,
-  respond: false,
   fake: false,
   debug: false,
   url: ''
@@ -19,7 +18,6 @@ var DEFAULTS = {
 module.exports = function(options, callback) {
   var urlObj;
   options = union(options, DEFAULTS);
-  callback = callback || function() {};
   if (options.fake) return callback();
   if (options.url) {
     urlObj = url.parse(options.url);
@@ -34,8 +32,8 @@ module.exports = function(options, callback) {
     });
     res.on('end', function() {
       if (options.debug) console.log(data);
-      // if parent res in options and respond is true just respond with data
-      if (options.res && options.respond) {
+      // if parent res in options and no callback was given just respond with data
+      if (options.res && !callback) {
         options.res.writeHead(res.statusCode, {'Content-Type': 'application/json'});
         options.res.end(data);
         return;
